@@ -23,6 +23,9 @@ def page_2():
         st.stop()
     with st.chat_message("user"):
         st.markdown(prompt)
+    respuesta = asistente(prompt)
+    with st.chat_message("assistant"):
+        st.write(respuesta)
 
 pg = st.navigation([st.Page("page_1.py"), st.Page(page_2)])
 pg.run()
