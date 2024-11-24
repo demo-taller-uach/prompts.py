@@ -18,7 +18,11 @@ def asistente(prompt):
         return respuesta
 def page_2():
     st.title("Page 2")
-    prompt = st.chat_input("What is up?")
+    prompt = st.chat_input("Escribe tu pregunta")
+    if prompt==None:
+        st.stop()
+    with st.chat_message("user"):
+        st.markdown(prompt)
 
 pg = st.navigation([st.Page("page_1.py"), st.Page(page_2)])
 pg.run()
