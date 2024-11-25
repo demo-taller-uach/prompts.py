@@ -49,7 +49,7 @@ def page_3():
         st.markdown(prompt)
     instruc = st.text_area("Usa solo mayusculas en tu respuesta")
     st.write("hello")
-    respuesta = asistente1(instruc,prompt)
+    respuesta = asistente2(instruc,prompt)
     with st.chat_message("assistant"):
         st.write(respuesta)
 pg = st.navigation([st.Page("page_1.py"), st.Page(page_2), st.Page(page_3)])
