@@ -57,7 +57,7 @@ def asistente3(instruc,prompt,temp,modelo):
         respuesta = stream.choices[0].message.content
         return respuesta
 def page_2():
-    st.title("Page 2")
+    st.title("Zero Shot Prompts")
     
     prompt = st.chat_input("Escribe tu pregunta")
     if prompt==None:
