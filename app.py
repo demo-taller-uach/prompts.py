@@ -24,6 +24,7 @@ def asistente1(prompt,temp=0):
                 temperature=temp,
             )
         respuesta = stream.choices[0].message.content
+        st.write(temp)
         return respuesta
 
 def asistente2(instruc,prompt,temp):
