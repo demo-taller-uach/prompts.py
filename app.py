@@ -47,9 +47,9 @@ def page_3():
         st.stop()
     with st.chat_message("user"):
         st.markdown(prompt)
-    st.text_input= "Use emojis to improve your answers"
+    instruc = st.text_input("Usa solo mayusculas en tu respuesta")
     st.write("hello")
-    respuesta = asistente1(prompt)
+    respuesta = asistente1(instruc,prompt)
     with st.chat_message("assistant"):
         st.write(respuesta)
 pg = st.navigation([st.Page("page_1.py"), st.Page(page_2), st.Page(page_3)])
