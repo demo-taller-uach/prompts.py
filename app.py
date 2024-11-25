@@ -70,7 +70,7 @@ def page_2():
         st.write(respuesta)
 
 def page_3():
-    #st.title("Instrucciones del sistema")
+    st.title("Instrucciones del sistema")
     #st.markdown("En esta parte se daran lnstrucciones sobre como se comporta el sistema.")
     instruc = st.sidebar.text_area("Instrucciones del sistema")
     prompt = st.chat_input("Escribe tu pregunta")
