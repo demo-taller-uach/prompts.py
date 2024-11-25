@@ -17,7 +17,7 @@ modelo = st.selectbox(
     ("gpt-3.5-turbo","gpt-4o-mini"),
 )
 
-def asistente1(prompt,temp=0,modelo):
+def asistente1(prompt,temp,modelo):
         stream = client.chat.completions.create(
                 model=modelo#"gpt-4o-mini",  
                 messages=[
@@ -31,7 +31,7 @@ def asistente1(prompt,temp=0,modelo):
         st.write(modelo)
         return respuesta
 
-def asistente2(instruc,prompt,temp=0):
+def asistente2(instruc,prompt,temp):
         stream = client.chat.completions.create(
                 model="gpt-4o-mini",  
                 messages=[
