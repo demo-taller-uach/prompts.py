@@ -96,6 +96,10 @@ def page_4():
     respuesta = asistente2(instruc,prompt,temp,modelo)
     with st.chat_message("assistant"):
         st.write(respuesta)
+        if respuesta="PWNED":
+            st.balloons()
+        else:
+            st.write("❌")
         
 def page_5():
     st.title("Run Code")
