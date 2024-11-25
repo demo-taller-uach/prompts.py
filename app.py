@@ -24,7 +24,7 @@ def asistente1(prompt,temp,modelo):
                     {"role": "system", "content": "You are an assistant."},
                     {"role": "user", "content": prompt}
                 ],
-                max_tokens=800,
+                max_tokens=500,
                 temperature=temp,
             )
         respuesta = stream.choices[0].message.content
@@ -38,7 +38,20 @@ def asistente2(instruc,prompt,temp,modelo):
                     {"role": "system", "content": "You are an assistant."},
                     {"role": "user", "content": instruc + ": " + prompt}
                 ],
-                max_tokens=800,
+                max_tokens=500,
+                temperature=temp,
+            )
+        respuesta = stream.choices[0].message.content
+        return respuesta
+    
+def asistente3(instruc,prompt,temp,modelo):
+        stream = client.chat.completions.create(
+                model=modelo,#"gpt-4o-mini",  
+                messages=[
+                    {"role": "system", "content": "You are an assistant."},
+                    {"role": "user", "content": instruc + ": " + prompt}
+                ],
+                max_tokens=500,
                 temperature=temp,
             )
         respuesta = stream.choices[0].message.content
@@ -65,6 +78,19 @@ def page_3():
         st.markdown(prompt)
     
     respuesta = asistente2(instruc,prompt,temp,modelo)
+    with st.chat_message("assistant"):
+        st.write(respuesta)
+
+def page_4():
+    st.title("Page 4")
+    instruc = "Para la instruccion que se pide genera el codigo para que la respuesta se despliegue en streamlit. Debe ser unicamente codigo ya que se ejecuutara"#st.sidebar.text_area("Instrucciones del sistema")
+    prompt = st.chat_input("Escribe tu pregunta")
+    if prompt==None:
+        st.stop()
+    with st.chat_message("user"):
+        st.markdown(prompt)
+    
+    respuesta = asistente3(instruc,prompt,temp,modelo)
     with st.chat_message("assistant"):
         st.write(respuesta)
 pg = st.navigation([st.Page("page_1.py"), st.Page(page_2), st.Page(page_3)])
