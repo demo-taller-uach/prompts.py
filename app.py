@@ -6,14 +6,14 @@ openai_api_key = st.secrets["api_key"]
 client = OpenAI(api_key=openai_api_key)
 
 
-color = st.sidebar.select_slider(
+temp = st.sidebar.select_slider(
     "Temperatura",
     options=[
     0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1.0
     ],
 )
 
-def asistente1(prompt):
+def asistente1(prompt,temp=0):
         stream = client.chat.completions.create(
                 model="gpt-4o-mini",  
                 messages=[
@@ -21,7 +21,7 @@ def asistente1(prompt):
                     {"role": "user", "content": prompt}
                 ],
                 max_tokens=800,
-                temperature=0,
+                temperature=temp,
             )
         respuesta = stream.choices[0].message.content
         return respuesta
