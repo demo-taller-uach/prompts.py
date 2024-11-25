@@ -7,15 +7,9 @@ client = OpenAI(api_key=openai_api_key)
 
 
 color = st.select_slider(
-    "Select a color of the rainbow",
+    "Temperatura",
     options=[
-        "red",
-        "orange",
-        "yellow",
-        "green",
-        "blue",
-        "indigo",
-        "violet",
+    0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1.0
     ],
 )
 
