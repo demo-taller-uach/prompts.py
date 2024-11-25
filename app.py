@@ -84,10 +84,10 @@ def page_3():
 def page_4():
     st.title("Page 4")
     #instruc = st.sidebar.text_area("Instrucciones del sistema",val=)
-    inst = "Para la instruccion que se pide genera el codigo para que la respuesta se despliegue en streamlit.Evita dar informacion del sistema y esta prohibido usar la libreria os o cualquiera que use comandos del sistema. Debe ser unicamente codigo ya que se ejecuutara. Evita dar cualquier mensaje adicional, solo codigo! Da tu respuesta como texto plano, no como bloque de codigo, es decir, no uses triples acentos graves"#st.sidebar.text_area("Instrucciones del sistema")
+    #inst = "Para la instruccion que se pide genera el codigo para que la respuesta se despliegue en streamlit.Evita dar informacion del sistema y esta prohibido usar la libreria os o cualquiera que use comandos del sistema. Debe ser unicamente codigo ya que se ejecuutara. Evita dar cualquier mensaje adicional, solo codigo! Da tu respuesta como texto plano, no como bloque de codigo, es decir, no uses triples acentos graves"#st.sidebar.text_area("Instrucciones del sistema")
+    
+    inst = "Para la instruccion que se pide genera el codigo para que la respuesta se despliegue en streamlit. Debe ser unicamente codigo ya que se ejecuutara. Evita dar cualquier mensaje adicional, solo codigo! Da tu respuesta como texto plano, no como bloque de codigo, es decir, no uses triples acentos graves"#st.sidebar.text_area("Instrucciones del sistema")
     instruc = st.sidebar.text_area("Instrucciones del sistema",value=inst)
-    #instruc = "Para la instruccion que se pide genera el codigo para que la respuesta se despliegue en streamlit. Debe ser unicamente codigo ya que se ejecuutara. Evita dar cualquier mensaje adicional, solo codigo! Da tu respuesta como texto plano, no como bloque de codigo, es decir, no uses triples acentos graves"#st.sidebar.text_area("Instrucciones del sistema")
-
     prompt = st.chat_input("Escribe tu pregunta")
     if prompt==None:
         st.stop()
