@@ -12,10 +12,14 @@ temp = st.sidebar.select_slider(
     0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1.0
     ],
 )
+modelo = st.selectbox(
+    "Modelo",
+    ("gpt-3.5-turbo","gpt-4o-mini"),
+)
 
-def asistente1(prompt,temp=0):
+def asistente1(prompt,temp=0,modelo):
         stream = client.chat.completions.create(
-                model="gpt-4o-mini",  
+                model=modelo#"gpt-4o-mini",  
                 messages=[
                     {"role": "system", "content": "You are an assistant."},
                     {"role": "user", "content": prompt}
@@ -24,7 +28,7 @@ def asistente1(prompt,temp=0):
                 temperature=temp,
             )
         respuesta = stream.choices[0].message.content
-        st.write(temp)
+        st.write(modelo)
         return respuesta
 
 def asistente2(instruc,prompt,temp=0):
@@ -47,7 +51,7 @@ def page_2():
         st.stop()
     with st.chat_message("user"):
         st.markdown(prompt)
-    respuesta = asistente1(prompt,temp)
+    respuesta = asistente1(prompt,temp,modelo)
     with st.chat_message("assistant"):
         st.write(respuesta)
 
