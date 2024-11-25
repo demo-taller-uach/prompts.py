@@ -47,7 +47,7 @@ def page_3():
         st.stop()
     with st.chat_message("user"):
         st.markdown(prompt)
-    instruc = st.text_input("Usa solo mayusculas en tu respuesta")
+    instruc = st.text_area("Usa solo mayusculas en tu respuesta")
     st.write("hello")
     respuesta = asistente1(instruc,prompt)
     with st.chat_message("assistant"):
