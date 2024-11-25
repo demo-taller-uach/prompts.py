@@ -19,7 +19,7 @@ modelo = st.selectbox(
 
 def asistente1(prompt,temp,modelo):
         stream = client.chat.completions.create(
-                model=modelo#"gpt-4o-mini",  
+                model=modelo,#"gpt-4o-mini",  
                 messages=[
                     {"role": "system", "content": "You are an assistant."},
                     {"role": "user", "content": prompt}
