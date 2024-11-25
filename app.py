@@ -5,17 +5,17 @@ openai_api_key = st.secrets["api_key"]
 # Create an OpenAI client.
 client = OpenAI(api_key=openai_api_key)
 
-
+modelo = st.sidebar.selectbox(
+    "Modelo",
+    ("gpt-3.5-turbo","gpt-4o-mini"),
+)
 temp = st.sidebar.select_slider(
     "Temperatura",
     options=[
     0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1.0
     ],
 )
-modelo = st.selectbox(
-    "Modelo",
-    ("gpt-3.5-turbo","gpt-4o-mini"),
-)
+
 
 def asistente1(prompt,temp,modelo):
         stream = client.chat.completions.create(
