@@ -98,7 +98,7 @@ def page_4():
     with st.chat_message("assistant"):
         #st.write(respuesta)
         if "Saturday" in respuesta:
-            st.write("🎈")
+            st.write("Saturday 🎈")
             st.balloons()
         else:
             st.write("❌")
