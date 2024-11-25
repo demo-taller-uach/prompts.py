@@ -92,7 +92,7 @@ def page_4():
     
     respuesta = asistente3(instruc,prompt,temp,modelo)
     with st.chat_message("assistant"):
-        st.write(respuesta)
+        st.code(respuesta)
         
         exec(respuesta)
         #except:
