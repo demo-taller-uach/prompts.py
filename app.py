@@ -27,7 +27,7 @@ def asistente1(prompt,temp=0):
         st.write(temp)
         return respuesta
 
-def asistente2(instruc,prompt,temp):
+def asistente2(instruc,prompt,temp=0):
         stream = client.chat.completions.create(
                 model="gpt-4o-mini",  
                 messages=[
@@ -47,7 +47,7 @@ def page_2():
         st.stop()
     with st.chat_message("user"):
         st.markdown(prompt)
-    respuesta = asistente1(prompt)
+    respuesta = asistente1(prompt,temp)
     with st.chat_message("assistant"):
         st.write(respuesta)
 
@@ -60,7 +60,7 @@ def page_3():
     with st.chat_message("user"):
         st.markdown(prompt)
     
-    respuesta = asistente2(instruc,prompt)
+    respuesta = asistente2(instruc,prompt,temp)
     with st.chat_message("assistant"):
         st.write(respuesta)
 pg = st.navigation([st.Page("page_1.py"), st.Page(page_2), st.Page(page_3)])
