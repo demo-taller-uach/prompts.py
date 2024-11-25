@@ -1,70 +1,56 @@
 import streamlit as st
-import openai
+from openai import OpenAI
 
-# Configuración de clave API desde secretos
-openai_api_key = st.secrets["api_key"]
-openai.api_key = openai_api_key
-
-# Función para interactuar con OpenAI
+openai_api_key = st.secrets["api_key"] 
+# Create an OpenAI client.
+client = OpenAI(api_key=openai_api_key)
 def asistente1(prompt):
-    response = openai.ChatCompletion.create(
-        model="gpt-4",
-        messages=[
-            {"role": "system", "content": "You are an assistant."},
-            {"role": "user", "content": prompt}
-        ],
-        max_tokens=800,
-        temperature=0,
-    )
-    respuesta = response.choices[0].message.content
-    return respuesta
+        stream = client.chat.completions.create(
+                model="gpt-4o-mini",  
+                messages=[
+                    {"role": "system", "content": "You are an assistant."},
+                    {"role": "user", "content": prompt}
+                ],
+                max_tokens=800,
+                temperature=0,
+            )
+        respuesta = stream.choices[0].message.content
+        return respuesta
 
-# Función para interactuar con OpenAI con instrucciones específicas
-def asistente2(instruc, prompt):
-    response = openai.ChatCompletion.create(
-        model="gpt-4",
-        messages=[
-            {"role": "system", "content": "You are an assistant."},
-            {"role": "user", "content": instruc + ": " + prompt}
-        ],
-        max_tokens=800,
-        temperature=0,
-    )
-    respuesta = response.choices[0].message.content
-    return respuesta
-
-# Página 2
+def asistente2(instruc,prompt):
+        stream = client.chat.completions.create(
+                model="gpt-4o-mini",  
+                messages=[
+                    {"role": "system", "content": "You are an assistant."},
+                    {"role": "user", "content": instruc + ": " + prompt}
+                ],
+                max_tokens=800,
+                temperature=0,
+            )
+        respuesta = stream.choices[0].message.content
+        return respuesta
 def page_2():
     st.title("Page 2")
     prompt = st.chat_input("Escribe tu pregunta")
-    if prompt:
-        with st.chat_message("user"):
-            st.markdown(prompt)
-        respuesta = asistente1(prompt)
-        with st.chat_message("assistant"):
-            st.markdown(respuesta)
+    if prompt==None:
+        st.stop()
+    with st.chat_message("user"):
+        st.markdown(prompt)
+    respuesta = asistente1(prompt)
+    with st.chat_message("assistant"):
+        st.write(respuesta)
 
-# Página 3
 def page_3():
     st.title("Page 3")
     prompt = st.chat_input("Escribe tu pregunta")
-    if prompt:
-        with st.chat_message("user"):
-            st.markdown(prompt)
-        instruc = "Use emojis to improve your answers"
-        respuesta = asistente2(instruc, prompt)
-        with st.chat_message("assistant"):
-            st.markdown(respuesta)
-
-# Navegación de páginas
-def main():
-    st.sidebar.title("Navigation")
-    page = st.sidebar.radio("Choose a page:", ["Page 2", "Page 3"])
-
-    if page == "Page 2":
-        page_2()
-    elif page == "Page 3":
-        page_3()
-
-if __name__ == "__main__":
-    main()
+    if prompt==None:
+        st.stop()
+    with st.chat_message("user"):
+        st.markdown(prompt)
+    st.text_input= "Use emojis to improve your answers"
+    st.write("hello")
+    respuesta = asistente1(prompt)
+    with st.chat_message("assistant"):
+        st.write(respuesta)
+pg = st.navigation([st.Page("page_1.py"), st.Page(page_2), st.Page(page_3)])
+pg.run()
