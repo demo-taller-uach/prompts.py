@@ -83,7 +83,7 @@ def page_3():
 
 def page_4():
     st.title("Page 4")
-    instruc = "Para la instruccion que se pide genera el codigo para que la respuesta se despliegue en streamlit. Debe ser unicamente codigo ya que se ejecuutara"#st.sidebar.text_area("Instrucciones del sistema")
+    instruc = "Para la instruccion que se pide genera el codigo para que la respuesta se despliegue en streamlit. Debe ser unicamente codigo ya que se ejecuutara. Evita dar cualquier mensaje adicional, solo codigo!"#st.sidebar.text_area("Instrucciones del sistema")
     prompt = st.chat_input("Escribe tu pregunta")
     if prompt==None:
         st.stop()
