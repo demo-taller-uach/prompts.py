@@ -41,7 +41,7 @@ def page_2():
         st.write(respuesta)
 
 def page_3():
-    st.title("Page 2")
+    st.title("Page 3")
     prompt = st.chat_input("Escribe tu pregunta")
     if prompt==None:
         st.stop()
