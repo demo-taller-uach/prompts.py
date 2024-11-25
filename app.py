@@ -95,8 +95,9 @@ def page_4():
     
     respuesta = asistente2(instruc,prompt,temp,modelo)
     with st.chat_message("assistant"):
-        st.write(respuesta)
+        #st.write(respuesta)
         if "Saturday" in respuesta:
+            st.write("🎈")
             st.balloons()
         else:
             st.write("❌")
