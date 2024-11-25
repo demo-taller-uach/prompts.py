@@ -102,5 +102,5 @@ def page_4():
             exec(respuesta)
         except:
             pass
-pg = st.navigation([st.Page("page_1.py"), st.Page(page_2,title="Zero-Shot"), st.Page(page_3),st.Page(page_4)])
+pg = st.navigation([st.Page("page_1.py"), st.Page(page_2,title="Zero-Shot"), st.Page(page_3,title="System instructions"),st.Page(page_4,title="run code")])
 pg.run()
