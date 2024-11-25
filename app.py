@@ -58,6 +58,7 @@ def asistente3(instruc,prompt,temp,modelo):
         return respuesta
 def page_2():
     st.title("Zero Shot Prompts")
+    st.header("El "zero-shot prompting" significa que el mensaje utilizado para interactuar con el modelo no contendrá ejemplos ni demostraciones. El mensaje de "zero-shot" instruye directamente al modelo para realizar una tarea sin proporcionar ejemplos adicionales para guiarlo.")
     
     prompt = st.chat_input("Escribe tu pregunta")
     if prompt==None:
