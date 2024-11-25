@@ -93,10 +93,10 @@ def page_4():
     respuesta = asistente3(instruc,prompt,temp,modelo)
     with st.chat_message("assistant"):
         st.write(respuesta)
-        try:
-            exec(respuesta)
-        except:
-            st.write("no")
-            pass
+        
+        exec(respuesta)
+        #except:
+         #   st.write("no")
+         #   pass
 pg = st.navigation([st.Page("page_1.py"), st.Page(page_2), st.Page(page_3),st.Page(page_4)])
 pg.run()
