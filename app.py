@@ -40,7 +40,7 @@ def asistente2(instruc,prompt):
         return respuesta
 def page_2():
     st.title("Page 2")
-    st.write("My favorite color is", color)
+    
     prompt = st.chat_input("Escribe tu pregunta")
     if prompt==None:
         st.stop()
