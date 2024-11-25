@@ -56,6 +56,21 @@ def asistente3(instruc,prompt,temp,modelo):
             )
         respuesta = stream.choices[0].message.content
         return respuesta
+def page_1():
+    st.title("¡Bienvenido a tu asistente interactivo!")
+    st.markdown("""
+    Esta aplicación te permite interactuar con modelos de lenguaje avanzados para diferentes tareas. 
+    Explora las opciones disponibles en la barra lateral y selecciona una funcionalidad.
+    
+    ### Funcionalidades Disponibles:
+    - **Zero-Shot Prompting:** Prueba mensajes sin ejemplos previos.
+    - **Instrucciones del Sistema:** Configura cómo el asistente debe comportarse.
+    - **PWNED Challenge:** Completa un desafío interactivo.
+    - **Run Code:** Genera y ejecuta código con seguridad.
+
+    🚀 ¡Comienza seleccionando una página en la barra lateral!
+    """)
+
 def page_2():
     st.title("Zero Shot Prompts")
     st.markdown('El "zero-shot prompting" significa que el mensaje utilizado para interactuar con el modelo no contendrá ejemplos ni demostraciones. El mensaje de "zero-shot" instruye directamente al modelo para realizar una tarea sin proporcionar ejemplos adicionales para guiarlo.')
@@ -125,5 +140,5 @@ def page_5():
         except:
             pass
 
-pg = st.navigation([st.Page("page_1.py",title="Bienvenida"), st.Page(page_2,title="Zero-Shot"), st.Page(page_3,title="System instructions"),st.Page(page_4,title="PWNED"),st.Page(page_5,title="run code")])
+pg = st.navigation([st.Page("page_1",title="Bienvenida"), st.Page(page_2,title="Zero-Shot"), st.Page(page_3,title="System instructions"),st.Page(page_4,title="PWNED"),st.Page(page_5,title="run code")])
 pg.run()
