@@ -42,7 +42,7 @@ def page_2():
 
 def page_3():
     st.title("Page 3")
-    instruc = st.sidebar.text_area("Usa solo mayusculas en tu respuesta")
+    instruc = st.sidebar.text_area("Instrucciones del sistema")
     prompt = st.chat_input("Escribe tu pregunta")
     if prompt==None:
         st.stop()
