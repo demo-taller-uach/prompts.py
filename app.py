@@ -48,6 +48,7 @@ def page_3():
     with st.chat_message("user"):
         st.markdown(prompt)
     st.text_input= "Use emojis to improve your answers"
+    st.write("hello")
     respuesta = asistente1(prompt)
     with st.chat_message("assistant"):
         st.write(respuesta)
