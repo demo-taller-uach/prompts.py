@@ -42,13 +42,13 @@ def page_2():
 
 def page_3():
     st.title("Page 3")
+    instruc = st.sidebar.text_area("Usa solo mayusculas en tu respuesta")
     prompt = st.chat_input("Escribe tu pregunta")
     if prompt==None:
         st.stop()
     with st.chat_message("user"):
         st.markdown(prompt)
-    instruc = st.text_area("Usa solo mayusculas en tu respuesta")
-    st.write("hello")
+    
     respuesta = asistente2(instruc,prompt)
     with st.chat_message("assistant"):
         st.write(respuesta)
