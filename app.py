@@ -26,7 +26,7 @@ def asistente1(prompt,temp=0):
         respuesta = stream.choices[0].message.content
         return respuesta
 
-def asistente2(instruc,prompt):
+def asistente2(instruc,prompt,temp):
         stream = client.chat.completions.create(
                 model="gpt-4o-mini",  
                 messages=[
@@ -34,7 +34,7 @@ def asistente2(instruc,prompt):
                     {"role": "user", "content": instruc + ": " + prompt}
                 ],
                 max_tokens=800,
-                temperature=0,
+                temperature=temp,
             )
         respuesta = stream.choices[0].message.content
         return respuesta
