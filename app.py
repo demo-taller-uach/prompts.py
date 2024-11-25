@@ -4,6 +4,21 @@ from openai import OpenAI
 openai_api_key = st.secrets["api_key"] 
 # Create an OpenAI client.
 client = OpenAI(api_key=openai_api_key)
+
+
+color = st.select_slider(
+    "Select a color of the rainbow",
+    options=[
+        "red",
+        "orange",
+        "yellow",
+        "green",
+        "blue",
+        "indigo",
+        "violet",
+    ],
+)
+
 def asistente1(prompt):
         stream = client.chat.completions.create(
                 model="gpt-4o-mini",  
@@ -31,6 +46,7 @@ def asistente2(instruc,prompt):
         return respuesta
 def page_2():
     st.title("Page 2")
+    st.write("My favorite color is", color)
     prompt = st.chat_input("Escribe tu pregunta")
     if prompt==None:
         st.stop()
