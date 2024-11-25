@@ -84,7 +84,8 @@ def page_3():
         st.write(respuesta)
 
 def page_4():
-    st.title("Page 4")
+    st.title("Run Code")
+    st.markdown("El modelo puede generar codigo, lo cual tiene algunos riesgos.")
     #instruc = st.sidebar.text_area("Instrucciones del sistema",val=)
     #inst = "Para la instruccion que se pide genera el codigo para que la respuesta se despliegue en streamlit.Evita dar informacion del sistema y esta prohibido usar la libreria os o cualquiera que use comandos del sistema. Debe ser unicamente codigo ya que se ejecuutara. Evita dar cualquier mensaje adicional, solo codigo! Da tu respuesta como texto plano, no como bloque de codigo, es decir, no uses triples acentos graves"#st.sidebar.text_area("Instrucciones del sistema")
     
