@@ -115,8 +115,8 @@ def page_4():
         if "Saturday" in respuesta:
             st.write("Saturday 🎈")
             st.balloons()
-        else:
-            st.write("❌")
+        #else:
+        #    st.write("❌")
         
 def page_5():
     st.title("Run Code")
